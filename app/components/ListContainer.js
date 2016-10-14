@@ -2,6 +2,7 @@ var React = require('react');
 var ListNewItem = require('./ListNewItem');
 var DisplayListItems = require('./DisplayListItems');
 var SearchItems = require('./SearchItems');
+var ClearAllButton = require('./ClearAllButton');
 
 var ListContainer = React.createClass({
   getInitialState: function() {
@@ -25,6 +26,12 @@ var ListContainer = React.createClass({
     });
   },
 
+  clearItems: function() {
+    this.setState({
+      listItems: []
+    });
+  },
+
   filterItems: function(text) {
     this.setState({
       query: text
@@ -40,6 +47,7 @@ var ListContainer = React.createClass({
         toDisplay.push(item)
       }
     });
+    var condition = (toDisplay.length != 0);
     return (
       <div>
         <ListNewItem
@@ -48,6 +56,8 @@ var ListContainer = React.createClass({
         <br />
         <SearchItems
           onSearch={this.filterItems} />
+        {condition && <ClearAllButton
+          clearAll={this.clearItems} />}
         <DisplayListItems
           tasks={toDisplay}
           onDelete={this.removeItem} />
