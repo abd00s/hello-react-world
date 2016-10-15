@@ -10,7 +10,7 @@ var DisplayListItems = React.createClass({
           return <span key={"item_" + i}>
             <li>
               {item["task"]}
-              <DeleteButton onClick={props.onDelete} index={item["id"]-1}/>
+              <DeleteButton onClick={props.onDelete} index={item["id"]}/>
             </li>
           </span>;
         })}

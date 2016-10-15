@@ -3,6 +3,7 @@ var ListNewItem = require('./ListNewItem');
 var DisplayListItems = require('./DisplayListItems');
 var SearchItems = require('./SearchItems');
 var ClearAllButton = require('./ClearAllButton');
+var _ = require('lodash');
 
 var ListContainer = React.createClass({
   getInitialState: function() {
@@ -13,10 +14,16 @@ var ListContainer = React.createClass({
   }.bind(this),
 
   addNewItem: function(newTask) {
-    var itemCount = this.state.listItems.length;
+    var itemCount;
+    if (this.state.listItems.length === 0) {
+      itemCount = 1;
+    }else{
+      var arrayLength = this.state.listItems.length;
+      itemCount = this.state.listItems[arrayLength - 1]["id"] + 1;
+    }
     var itemObject = {
       task: newTask,
-      id: itemCount + 1
+      id: itemCount
     }
     this.setState({
       listItems: this.state.listItems.concat(itemObject)
@@ -25,7 +32,7 @@ var ListContainer = React.createClass({
 
   removeItem: function(index) {
     var array = this.state.listItems;
-    array.splice(index, 1)
+    array = _.reject(array, function(o){return o["id"]==index;})
     this.setState({
       listItems: array
     });
