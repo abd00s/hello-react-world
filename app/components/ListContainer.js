@@ -13,8 +13,13 @@ var ListContainer = React.createClass({
   }.bind(this),
 
   addNewItem: function(newTask) {
+    var itemCount = this.state.listItems.length;
+    var itemObject = {
+      task: newTask,
+      id: itemCount + 1
+    }
     this.setState({
-      listItems: this.state.listItems.concat([newTask])
+      listItems: this.state.listItems.concat(itemObject)
     });
   },
 
@@ -41,7 +46,7 @@ var ListContainer = React.createClass({
   render: function(){
     var query = this.state.query;
     var toDisplay = this.state.listItems.filter(function(item){
-      return item.indexOf(query) !== -1
+      return item["task"].indexOf(query) !== -1
     });
     var condition = (toDisplay.length != 0);
     return (

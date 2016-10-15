@@ -9,8 +9,8 @@ var DisplayListItems = React.createClass({
         {this.props.tasks.map(function(item, i){
           return <span key={"item_" + i}>
             <li>
-              {item}
-              <DeleteButton onClick={props.onDelete} index={i}/>
+              {item["task"]}
+              <DeleteButton onClick={props.onDelete} index={item["id"]-1}/>
             </li>
           </span>;
         })}
