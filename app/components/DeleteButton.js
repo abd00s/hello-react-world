@@ -7,7 +7,7 @@ var DeleteButton = React.createClass({
 
   render: function(){
     return (
-      <button onClick={this.handleDelButtonPress}>Delete</button>
+      <button type="button" className="btn btn-xs btn-warning" onClick={this.handleDelButtonPress}>Delete</button>
     )
   }
 });

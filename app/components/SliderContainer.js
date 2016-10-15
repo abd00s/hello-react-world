@@ -26,7 +26,7 @@ var SliderContainer = React.createClass({
 
   render: function(){
     return (
-      <div>
+      <div className="col-xs-6">
         <h4>Change the background color! Try it out</h4>
         <p>Red</p>
         <Slider ref="red" color={this.state.red} onSlide={this.handleSlide} />

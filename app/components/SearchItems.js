@@ -8,9 +8,10 @@ var SearchItems = React.createClass({
 
   render: function(){
     return (
-      <div>
+      <div className={"col-xs-6"}>
         <label>Search Items</label>
         <input
+          className="form-control"
           type="text"
           onChange={this.handleSearch} />
       </div>

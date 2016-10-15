@@ -10,7 +10,7 @@ var NameChange = React.createClass({
     return (
       <span>
         <h2>What is your name?</h2>
-        <input type="text" onChange={this.HandleNameChange}/>
+        <input className="form-control" type="text" onChange={this.HandleNameChange}/>
       </span>
     )
   }

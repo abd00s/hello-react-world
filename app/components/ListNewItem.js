@@ -15,10 +15,11 @@ var ListNewItem = React.createClass({
 
   render: function(){
     return (
-      <div>
+      <div className={"col-xs-6"}>
         <label>Add a new task</label>
         <input
           type="text"
+          className="form-control"
           onKeyPress={this.handleKeyPress} />
       </div>
     )

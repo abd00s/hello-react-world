@@ -62,8 +62,8 @@ var ListContainer = React.createClass({
           onAdd={this.addNewItem} />
         <br />
         <br />
-        <SearchItems
-          onSearch={this.filterItems} />
+        {condition && <SearchItems
+          onSearch={this.filterItems} />}
         {condition && <ClearAllButton
           clearAll={this.clearItems} />}
         <DisplayListItems
