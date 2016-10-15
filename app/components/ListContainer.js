@@ -39,13 +39,9 @@ var ListContainer = React.createClass({
   },
 
   render: function(){
-    var toDisplay = [];
-    var allItems = this.state.listItems;
     var query = this.state.query;
-    allItems.forEach(function(item){
-      if (item.indexOf(query) === 0) {
-        toDisplay.push(item)
-      }
+    var toDisplay = this.state.listItems.filter(function(item){
+      return item.indexOf(query) !== -1
     });
     var condition = (toDisplay.length != 0);
     return (
