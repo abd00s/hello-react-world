@@ -3,6 +3,7 @@ var Header = require('./Header');
 var GreetingContainer = require('./GreetingContainer');
 var ListContainer = require('./ListContainer');
 var SliderContainer = require('./SliderContainer');
+var HoverContainer = require('./HoverContainer');
 var ReactBootstrap = require('react-bootstrap');
 Col = ReactBootstrap.Col;
 Row = ReactBootstrap.Row;
@@ -26,6 +27,9 @@ var App = React.createClass({
         </Panel>
         <Panel header="Live Color Manipulation">
           <SliderContainer />
+        </Panel>
+        <Panel header="Live Color Manipulation ii - Hover over box">
+          <HoverContainer />
         </Panel>
       </Col>
     )
