@@ -55,7 +55,7 @@ var ListContainer = React.createClass({
     var toDisplay = this.state.listItems.filter(function(item){
       return item["task"].indexOf(query) !== -1
     });
-    var condition = (toDisplay.length != 0);
+    var condition = (this.state.listItems.length != 0);
     return (
       <div>
         <ListNewItem
