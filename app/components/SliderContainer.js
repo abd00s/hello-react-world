@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Slider = require('./Slider');
+var ResetButton = require('./ResetButton');
 
 var SliderContainer = React.createClass({
   getInitialState: function() {
@@ -24,10 +25,21 @@ var SliderContainer = React.createClass({
     document.body.style.background=backgroundColor;
   },
 
+  handleClick: function(e) {
+    this.setState({
+      red: 255,
+      green: 255,
+      blue: 255
+    })
+    document.body.style.background="rgb(255,255,255)";
+  },
+
   render: function(){
+    var condition = (this.state.red !== 255 || this.state.green !== 255 || this.state.blue !== 255);
     return (
       <div className="col-xs-6">
         <h4>Change the background color! Try it out</h4>
+        {condition && <ResetButton onClick={this.handleClick}/>}
         <p>Red</p>
         <Slider ref="red" color={this.state.red} onSlide={this.handleSlide} />
         {this.state.red}
